@@ -235,18 +235,20 @@
 <body>
 
 <!-- Header/Navigation -->
-<header class="bg-white shadow-lg sticky top-0 z-50">
-    <div class="container mx-auto px-6">
-        <div class="flex justify-between items-center h-20">
+<header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="px-4 py-3 flex items-center justify-between">
             <!-- Logo -->
-            <div class="flex items-center">
-                <img src="img/Logo.png" alt="Brij Yatra Travels" class="h-16 mr-3">
-                <div>
-                    <h1 class="text-xl font-bold text-gray-800">Brij Yatra Travels</h1>
-                    <p class="text-xs text-gray-600">Mathura • Vrindavan • Barsana • Govardhan</p>
-                </div>
+            <div class="flex items-center space-x-3">
+            <img src="img/Logo.png" alt="Brij Yatra Travels" class="h-12 w-12 rounded-lg shadow-sm">
+            <div>
+                <h1 class="text-lg font-bold text-gray-800 leading-tight">Brij Yatra Travels</h1>
+                <p class="text-xs text-gray-600 leading-none">Mathura • Vrindavan • Barsana • Govardhan</p>
             </div>
-
+        </div>
+        <!-- Mobile Menu Button -->
+        <button id="menu-toggle" class="lg:hidden text-gray-700 hover:text-saffron text-3xl focus:outline-none">
+            <i class="fas fa-bars"></i>
+        </button>
             <!-- Desktop Navigation - Clean Style -->
             <nav class="hidden lg:flex items-center space-x-2">
                 <a href="#home"       class="nav-link">Home</a>
@@ -278,27 +280,27 @@
 
     <!-- Mobile Menu - Also Clean Style -->
     <div id="mobile-menu" class="lg:hidden bg-white border-t border-gray-200">
-        <div class="px-4 py-4 space-y-1">
-            <a href="#home"       class="block nav-link py-3 text-lg active">Home</a>
-            <a href="#about"      class="block nav-link py-3 text-lg">About</a>
-            <a href="#services"   class="block nav-link py-3 text-lg">Services</a>
-            <a href="#packages"   class="block nav-link py-3 text-lg">Packages</a>
-            <a href="#rates"      class="block nav-link py-3 text-lg">Rates</a>
-            <a href="#guest-house"class="block nav-link py-3 text-lg">Guest House</a>
-            <a href="#gallery"    class="block nav-link py-3 text-lg">Gallery</a>
-            <a href="#contact"    class="block nav-link py-3 text-lg">Contact</a>
-            <div class="pt-4 flex justify-center space-x-6">
-                <a href="tel:+919761800777" class="bg-green-500 text-white px-6 py-3 rounded-full font-medium hover:bg-green-600">
-                    <i class="fas fa-phone mr-2"></i>Call
+        <div class="py-3 space-y-0">
+            <a href="#home"        class="block nav-link py-3 px-6 text-base font-medium">Home</a>
+            <a href="#about"       class="block nav-link py-3 px-6 text-base font-medium">About</a>
+            <a href="#services"    class="block nav-link py-3 px-6 text-base font-medium">Services</a>
+            <a href="#packages"    class="block nav-link py-3 px-6 text-base font-medium">Packages</a>
+            <a href="#rates"       class="block nav-link py-3 px-6 text-base font-medium">Rates</a>
+            <a href="#guest-house" class="block nav-link py-3 px-6 text-base font-medium">Guest House</a>
+            <a href="#gallery"     class="block nav-link py-3 px-6 text-base font-medium">Gallery</a>
+            <a href="#contact"     class="block nav-link py-3 px-6 text-base font-medium">Contact</a>
+            
+            <div class="border-t border-gray-200 mt-2 pt-3 pb-2 flex justify-center gap-4">
+                <a href="tel:+919761800777" class="bg-green-500 text-white px-6 py-2.5 rounded-full text-sm font-medium flex items-center gap-2 shadow-lg">
+                    <i class="fas fa-phone"></i> Call Now
                 </a>
-                <a href="https://wa.me/919761800777" class="bg-green-500 text-white px-6 py-3 rounded-full font-medium hover:bg-green-600">
-                    <i class="fab fa-whatsapp mr-2"></i>WhatsApp
+                <a href="https://wa.me/919761800777" class="bg-green-500 text-white px-6 py-2.5 rounded-full text-sm font-medium flex items-center gap-2 shadow-lg">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
             </div>
         </div>
     </div>
 </header>
-
     <!-- Hero Section -->
     <section class="hero-bg flex items-center justify-center text-white" id="home">
         <div class="container mx-auto px-4 text-center">
@@ -633,4 +635,5 @@
         });
     </script>
 </body>
+
 </html>
