@@ -95,6 +95,7 @@
 <!-- FIXED HEADER -->
 <header class="bg-white shadow-md sticky top-0 z-50">
     <div class="px-4 py-3 flex items-center justify-between">
+        <!-- Logo -->
         <div class="flex items-center space-x-3">
             <img src="img/Logo.png" alt="Brij Yatra Travels" class="h-12 w-12 rounded-lg object-contain">
             <div class="leading-tight">
@@ -103,8 +104,9 @@
             </div>
         </div>
 
+        <!-- Desktop Nav + CTA (same as before) -->
         <nav class="hidden lg:flex items-center space-x-6">
-            <a href="#home" class="nav-link">Home</a>
+            <a href="#home" class="nav-link active">Home</a>
             <a href="#about" class="nav-link">About</a>
             <a href="#services" class="nav-link">Services</a>
             <a href="#packages" class="nav-link">Packages</a>
@@ -113,30 +115,31 @@
             <a href="#gallery" class="nav-link">Gallery</a>
             <a href="#contact" class="nav-link">Contact</a>
         </nav>
-
         <div class="hidden lg:flex items-center space-x-3">
             <a href="tel:+919761800777" class="bg-green-500 text-white p-3 rounded-full hover:bg-green-600"><i class="fas fa-phone"></i></a>
             <a href="https://wa.me/919761800777" class="bg-green-500 text-white p-3 rounded-full hover:bg-green-600"><i class="fab fa-whatsapp"></i></a>
         </div>
 
+        <!-- Only ONE Hamburger Button -->
         <button id="menu-toggle" class="lg:hidden text-3xl text-gray-700">
             <i class="fas fa-bars"></i>
         </button>
     </div>
 
-    <div id="mobile-menu" class="lg:hidden bg-white border-t border-gray-200">
-        <div class="py-4 px-6 space-y-1">
-            <a href="#home" class="block nav-link py-3 text-base font-medium">Home</a>
-            <a href="#about" class="block nav-link py-3 text-base font-medium">About</a>
-            <a href="#services" class="block nav-link py-3 text-base font-medium">Services</a>
-            <a href="#packages" class="block nav-link py-3 text-base font-medium">Packages</a>
-            <a href="#rates" class="block nav-link py-3 text-base font-medium">Rates</a>
-            <a href="#guest-house" class="block nav-link py-3 text-base font-medium">Guest House</a>
-            <a href="#gallery" class="block nav-link py-3 text-base font-medium">Gallery</a>
-            <a href="#contact" class="block nav-link py-3 text-base font-medium">Contact</a>
-            <div class="pt-4 border-t border-gray-200 mt-3 flex justify-center gap-6">
-                <a href="tel:+919761800777" class="bg-green-500 text-white px-8 py-3 rounded-full font-medium flex items-center gap-2"><i class="fas fa-phone"></i> Call Now</a>
-                <a href="https://wa.me/919761800777" class="bg-green-500 text-white px-8 py-3 rounded-full font-medium flex items-center gap-2"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <!-- THIS IS THE SAME HORIZONTAL NAV - JUST SLIDES DOWN ON MOBILE -->
+    <div id="mobile-menu" class="lg:hidden bg-white border-t border-gray-200 overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+        <div class="flex flex-col items-center py-4">
+            <a href="#home" class="nav-link py-3 w-full text-center">Home</a>
+            <a href="#about" class="nav-link py-3 w-full text-center">About</a>
+            <a href="#services" class="nav-link py-3 w-full text-center">Services</a>
+            <a href="#packages" class="nav-link py-3 w-full text-center">Packages</a>
+            <a href="#rates" class="nav-link py-3 w-full text-center">Rates</a>
+            <a href="#guest-house" class="nav-link py-3 w-full text-center">Guest House</a>
+            <a href="#gallery" class="nav-link py-3 w-full text-center">Gallery</a>
+            <a href="#contact" class="nav-link py-3 w-full text-center">Contact</a>
+            <div class="flex gap-6 mt-4">
+                <a href="tel:+919761800777" class="bg-green-500 text-white px-8 py-3 rounded-full flex items-center gap-2"><i class="fas fa-phone"></i> Call</a>
+                <a href="https://wa.me/919761800777" class="bg-green-500 text-white px-8 py-3 rounded-full flex items-center gap-2"><i class="fab fa-whatsapp"></i> WhatsApp</a>
             </div>
         </div>
     </div>
@@ -471,31 +474,29 @@
 
     <!-- JavaScript for Mobile Menu -->
    <script>
-    document.getElementById('menu-toggle').addEventListener('click', function() {
-        document.getElementById('mobile-menu').classList.toggle('open');
-        this.querySelector('i').classList.toggle('fa-bars');
-        this.querySelector('i').classList.toggle('fa-times');
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+
+    toggle.addEventListener('click', () => {
+        menu.classList.toggle('max-h-0');
+        menu.classList.toggle('max-h-screen');
+        toggle.querySelector('i').classList.toggle('fa-bars');
+        toggle.querySelector('i').classList.toggle('fa-times');
     });
-    document.querySelectorAll('#mobile-menu a').forEach(link => {
+
+    // Close when clicking a link
+    menu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.remove('open');
-            document.querySelector('#menu-toggle i').classList.add('fa-bars');
-            document.querySelector('#menu-toggle i').classList.remove('fa-times');
-        });
-    });
-    window.addEventListener('scroll', () => {
-        let current = '';
-        document.querySelectorAll('section[id]').forEach(section => {
-            if (window.scrollY >= section.offsetTop - 200) current = section.getAttribute('id');
-        });
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+            menu.classList.add('max-h-0');
+            menu.classList.remove('max-h-screen');
+            toggle.querySelector('i').classList.add('fa-bars');
+            toggle.querySelector('i').classList.remove('fa-times');
         });
     });
 </script>
 
 </body>
 </html>
+
 
 
