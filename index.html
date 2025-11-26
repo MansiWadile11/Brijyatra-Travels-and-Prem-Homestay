@@ -236,7 +236,6 @@
 
 <!-- Header/Navigation -->
 <header class="bg-white shadow-md sticky top-0 z-50">
-    <!-- Main Header Bar -->
     <div class="px-4 py-3 flex items-center justify-between">
         <!-- Logo + Name -->
         <div class="flex items-center space-x-3">
@@ -636,10 +635,18 @@
 
     menuToggle.addEventListener('click', () => {
         mobileMenu.classList.toggle('max-h-0');
-        mobileMenu.classList.toggle('max-h-screen');
+        mobileMenu.classList.toggle('max-h-96'); // enough height for all items
     });
 
-    // Auto highlight active section (same as before)
+    // Close menu when clicking a link (optional but nice)
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('max-h-0');
+            mobileMenu.classList.remove('max-h-96');
+        });
+    });
+
+    // Active section highlight on scroll
     window.addEventListener('scroll', () => {
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-link');
@@ -656,4 +663,5 @@
 </body>
 
 </html>
+
 
